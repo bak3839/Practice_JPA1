@@ -8,6 +8,7 @@ import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.ItemRepository;
 import jpabook.jpashop.repository.MemberRepository;
 import jpabook.jpashop.repository.OrderRepository;
+import jpabook.jpashop.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
@@ -56,12 +57,12 @@ public class OrderService {
         Order order = orderRepository.findOne(orderId);
 
         //주문 취소
-        // JPA가 변경을 감지하여 알아서 UPDATE문을 생성하여 보냄
+        // JPA 가 변경을 감지하여 알아서 UPDATE 문을 생성하여 보냄
         order.cancel();
     }
 
     //검색
-    /*public List<Order> findOrders(OrderSearch orderSearch) {
+    public List<Order> findOrders(OrderSearch orderSearch) {
         return orderRepository.findAll(orderSearch);
-    }*/
+    }
 }
